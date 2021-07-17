@@ -1,0 +1,8 @@
+<p>Sign Up</p>
+<div class="row">
+    <div class="col-xs-6">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <input type="email" formControlName="email" />
+        </form>
+    </div>
+</div>
