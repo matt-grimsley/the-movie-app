@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from './user.model';
-import { catchError, tap } from 'rxjs/operators';
-import { Observable, Subscription, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
     currentUser: User;
 
     constructor(private http: HttpClient) {}
@@ -19,7 +18,7 @@ export class UsersService {
         nickname: string,
         password: string,
         passwordConfirmation: string
-    ) {
+    ) : void {
         this.http
             .post('https://codelabs2021.herokuapp.com/api/v1/users/signup', {
                 email: email,
@@ -41,45 +40,58 @@ export class UsersService {
                         responseData['payload']['token']
                     );
                     console.log(this.currentUser);
+                } else {
+                    console.log(responseData['message']);
                 }
             });
-        // .pipe(
-        //     catchError(this.handleError),
-        //     tap((responseData) => {
-        //       if (responseData.success) {
-        //         this.handleAuthentication()
-        //       }
-        //     })
-        // );
     }
 
-    login(email: string, password: string) {
+    login(email: string, password: string) : void {
         this.http
-            .post('https://codelabs2021.herokuapp.com/api/v1/users/signup', {
+            .post('https://codelabs2021.herokuapp.com/api/v1/users/login', {
                 email: email,
                 password: password
             })
             .subscribe((responseData) => {
-                debugger;
                 if (responseData['success']) {
-                    this.currentUser = new User(
-                        responseData['payload']['id'],
-                        responseData['payload']['email'],
-                        responseData['payload']['first_name'],
-                        responseData['payload']['last_name'],
-                        responseData['payload']['name'],
-                        responseData['payload']['nickname'],
-                        responseData['payload']['token']
-                    );
+                  debugger
+                    // this.currentUser = new User(
+                    //     responseData['payload']['id'],
+                    //     responseData['payload']['email'],
+                    //     responseData['payload']['first_name'],
+                    //     responseData['payload']['last_name'],
+                    //     responseData['payload']['name'],
+                    //     responseData['payload']['nickname'],
+                    //     responseData['payload']['token']
+                    // );
+                    this.currentUser = responseData['payload'] as User;
                     console.log(this.currentUser);
+                } else {
+                    console.log(responseData['message']);
                 }
             });
     }
+
+    logout() : void {
+        if (this.currentUser) {
+            this.http
+                .delete('https://codelabs2021.herokuapp.com/api/v1/users/logout', {})
+                .subscribe((responseData) => {
+                    if (responseData['success']) {
+                        this.currentUser = null;
+                        console.log(`Logged out. this.currentUser:${this.currentUser}`);
+                    } else {
+                        console.log('Well this is strange... failed to log out.');
+                    }
+                });
+        }
+    }
+
     handleError(errorResponse: HttpErrorResponse) {
         return throwError('Method not implemented.');
     }
 
-    handleAuthentication() {
+    private handleAuthentication(user: User) {
         throw new Error('Method not implemented.');
     }
 }

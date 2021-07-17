@@ -6,5 +6,5 @@ export class User {
     public lastName: string,
     public name: string,
     public nickname: string,
-    private token?: string) {}
+    public token?: string) {}
 }

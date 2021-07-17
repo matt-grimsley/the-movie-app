@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,10 +13,18 @@ export class SignUpComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.signupForm = new FormGroup({
+      email: new FormControl,
+      firstName: new FormControl,
+      lastName: new FormControl,
+      nickname: new FormControl,
+      password: new FormControl,
+      passwordConfirmation: new FormControl
+    })
   }
 
   onSubmit() {
-    console.log(this.signupForm);
+    console.log(this.signupForm.value);
   }
 
 }
