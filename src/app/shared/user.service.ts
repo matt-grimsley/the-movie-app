@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from './user.model';
 import { throwError } from 'rxjs';
+import { take } from 'rxjs/operators'
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
         nickname: string,
         password: string,
         passwordConfirmation: string
-    ) : void {
+    ) {
         this.http
             .post('https://codelabs2021.herokuapp.com/api/v1/users/signup', {
                 email: email,
@@ -27,8 +28,7 @@ export class UserService {
                 nickname: nickname,
                 password: password,
                 password_confirmation: passwordConfirmation
-            })
-            .subscribe((responseData) => {
+            })            .subscribe((responseData) => {
                 if (responseData['success']) {
                     this.currentUser = new User(
                         responseData['payload']['id'],
@@ -46,7 +46,7 @@ export class UserService {
             });
     }
 
-    login(email: string, password: string) : void {
+    login(email: string, password: string) {
         this.http
             .post('https://codelabs2021.herokuapp.com/api/v1/users/login', {
                 email: email,
@@ -54,16 +54,6 @@ export class UserService {
             })
             .subscribe((responseData) => {
                 if (responseData['success']) {
-                  debugger
-                    // this.currentUser = new User(
-                    //     responseData['payload']['id'],
-                    //     responseData['payload']['email'],
-                    //     responseData['payload']['first_name'],
-                    //     responseData['payload']['last_name'],
-                    //     responseData['payload']['name'],
-                    //     responseData['payload']['nickname'],
-                    //     responseData['payload']['token']
-                    // );
                     this.currentUser = responseData['payload'] as User;
                     console.log(this.currentUser);
                 } else {
@@ -72,7 +62,7 @@ export class UserService {
             });
     }
 
-    logout() : void {
+    logout() {
         if (this.currentUser) {
             this.http
                 .delete('https://codelabs2021.herokuapp.com/api/v1/users/logout', {})

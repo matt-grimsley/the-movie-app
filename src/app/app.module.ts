@@ -9,6 +9,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthInterceptorService } from './shared/auth-interceptor.service';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -18,7 +20,7 @@ import { AuthInterceptorService } from './shared/auth-interceptor.service';
         HomeComponent,
         HeaderComponent
     ],
-    imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+    imports: [RouterModule, BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
     ],
