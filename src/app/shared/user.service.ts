@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from './user.model';
-import { throwError } from 'rxjs';
-import { take } from 'rxjs/operators'
+import { BehaviorSubject, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
-    currentUser: User;
+    private _user: User;
+    userSubject = new BehaviorSubject<User>(null);
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
+
+    public get user() {
+      return this._user;
+    }
 
     signUp(
         email: string,
@@ -30,16 +35,7 @@ export class UserService {
                 password_confirmation: passwordConfirmation
             })            .subscribe((responseData) => {
                 if (responseData['success']) {
-                    this.currentUser = new User(
-                        responseData['payload']['id'],
-                        responseData['payload']['email'],
-                        responseData['payload']['first_name'],
-                        responseData['payload']['last_name'],
-                        responseData['payload']['name'],
-                        responseData['payload']['nickname'],
-                        responseData['payload']['token']
-                    );
-                    console.log(this.currentUser);
+                  this.handleAuthentication(responseData['payload'] as User);
                 } else {
                     console.log(responseData['message']);
                 }
@@ -54,8 +50,7 @@ export class UserService {
             })
             .subscribe((responseData) => {
                 if (responseData['success']) {
-                    this.currentUser = responseData['payload'] as User;
-                    console.log(this.currentUser);
+                    this.handleAuthentication(responseData['payload'] as User);
                 } else {
                     console.log(responseData['message']);
                 }
@@ -63,13 +58,15 @@ export class UserService {
     }
 
     logout() {
-        if (this.currentUser) {
+        if (this.user) {
             this.http
                 .delete('https://codelabs2021.herokuapp.com/api/v1/users/logout', {})
                 .subscribe((responseData) => {
                     if (responseData['success']) {
-                        this.currentUser = null;
-                        console.log(`Logged out. this.currentUser:${this.currentUser}`);
+                        this._user = null;
+                        console.log(`Logged out. this.user:${this.user}`);
+                        this.userSubject.next(this.user);
+                        this.router.navigate(['/home']);
                     } else {
                         console.log('Well this is strange... failed to log out.');
                     }
@@ -82,6 +79,9 @@ export class UserService {
     }
 
     private handleAuthentication(user: User) {
-        throw new Error('Method not implemented.');
+         this._user = user;
+         console.log(this.user);
+         this.userSubject.next(this.user);
+         this.router.navigate(['/home']);
     }
 }

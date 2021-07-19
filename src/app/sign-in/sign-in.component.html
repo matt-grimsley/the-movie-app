@@ -3,24 +3,24 @@
         <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="form-group m-1">
-                    <label for="email">Email</label>
+                    <label for="email">email</label>
                     <input
                         type="email"
                         id="email"
                         formControlName="email"
-                        class="form-control"
+                        class="form-control mg-input"
                     />
-                    <label for="password">Password</label>
+                    <label for="password">password</label>
                     <input
                         type="password"
                         id="password"
                         formControlName="password"
-                        class="form-control"
+                        class="form-control mg-input"
                     />
                 </div>
             </div>
-            <button class="btn btn-success m-1" type="submit">Sign In</button>
-            <button class="btn btn-danger m-1" type="button" (click)="logout()">Logout</button>
+            <button class="btn mg-btn m-1" type="submit">sign in</button>
+            <button class="btn mg-btn m-1" type="button" (click)="logout()">logout</button>
         </form>
     </div>
 </div>

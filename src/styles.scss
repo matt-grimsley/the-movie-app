@@ -1,11 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
-.outer-container {
-    // background-color: #5a5d5f;
-    // color: #97d0e8;
-    background: #00d2ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.app-container {
+    font-family: 'Montserrat', sans-serif;
+}
 
+.outer-container {
+    background: #000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to top,
+        #28292c,
+        #5a5d5f
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to top,
+        #28292c,
+        #5a5d5f
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: #94d0e7;
+    min-height: 100vh;
 }
 .inner-container {
     display: flex;
@@ -14,16 +25,129 @@
     min-width: 40vw;
 }
 
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    letter-spacing: 1px;
+    background-color: #ba595a;
+    color: #28292c;
+}
+
 .navbar {
     background-color: #28292c;
     color: #ba595a;
-    font-family: 'Lato', sans-serif;
 }
 
-.navbar-toggler-icon {
-  color: #ba595a;
+.navbar-brand {
+    cursor: pointer;
 }
 
-input {
-  background-color: #E2e9eb !important;
+.navbar-toggler {
+    color: #ba595a;
+}
+
+.nav-item {
+    padding: 10px;
+    margin: 2px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.header-link {
+    padding: 2px;
+    margin: 2px;
+    color: #ba595a;
+    background-color: #28292c;
+    cursor: pointer;
+}
+
+.header-link:hover {
+    color: #28292c;
+    background-color: #ba595a;
+    box-shadow: 0 0 2px 2px #ba595a;
+}
+
+.form-control {
+    background-color: #28292c;
+    border-color: #94d0e7;
+    color: #ba595a;
+}
+
+.form-control {
+    &:focus,
+    &:active {
+        box-shadow: 0 0 5px 5px #ba595a;
+    }
+}
+
+.form-control {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #28292c;
+        border-color: #94d0e7;
+        color: #ba595a;
+    }
+}
+
+.btn {
+    background-color: #28292c;
+    color: #94d0e7;
+}
+
+.btn:hover {
+    background-color: #94d0e7;
+    color: #28292c;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 #bf5758;
+    transition: 0.3s;
+    background-color: #5a5d5f;
+    background-clip: border-box;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 #ba595a;
+}
+
+.card-img {
+    background-color: #5a5d5f;
+    background-clip: padding-box;
+}
+
+.card-container {
+    padding: 2px 16px;
+}
+
+// input,
+// input:hover,
+// input:focus,
+// input:active {
+//     -webkit-text-fill-color: #ba595a;
+//     -webkit-background
+//     transition: background-color 5000s ease-in-out 0s;
+// }
+
+input:-webkit-autofill,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:active,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:active,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ba595a;
+    color: #ba595a;
+    -webkit-box-shadow: 0 0 0px 1000px #28292c inset;
+    box-shadow: 0 0 0px 1000px #28292c inset;
 }

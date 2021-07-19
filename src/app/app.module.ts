@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthInterceptorService } from './shared/auth-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
         SignUpComponent,
         SignInComponent,
         HomeComponent,
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     ],
     imports: [RouterModule, BrowserModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule],
     providers: [
