@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { SubscribableOrPromise, Subscription } from 'rxjs';
 import { User } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
@@ -14,7 +15,13 @@ export class HeaderComponent implements OnInit {
     user: User;
     userSub: Subscription;
 
-    constructor(private userService: UserService, private router: Router) {}
+    constructor(
+        private userService: UserService,
+        private router: Router,
+        private config: NgbDropdownConfig
+    ) {
+        config.autoClose = true;
+    }
 
     ngOnInit(): void {
         this.userSub = this.userService.userSubject.subscribe((user) => {
@@ -24,6 +31,6 @@ export class HeaderComponent implements OnInit {
 
     logout() {
         this.userService.logout();
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home']);
     }
 }

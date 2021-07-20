@@ -20,7 +20,6 @@
                 <li class="nav-item" ngbDropdown>
                     <span
                         class="header-link"
-                        ngbDropdownToggle
                         routerLink="/sign-in"
                         role="button"
                         *ngIf="!user"
@@ -44,7 +43,7 @@
                         ngbDropdownToggle
                         role="button"
                         *ngIf="user"
-                        (click)="isCollapsed = !isCollapsed"
+                        
                         >{{ user.nickname }} ({{ user.email }})</span
                     >
                 </li>
