@@ -1,0 +1,5 @@
+<!-- <ngb-alert #selfClosingAlert *ngIf="message" type="danger" [dismissible]="true" (closed)="message=''">{{message}}</ngb-alert> -->
+
+<ngb-alert *ngIf="show" [type]="type">
+    {{ message }}
+</ngb-alert>

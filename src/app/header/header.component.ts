@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SubscribableOrPromise, Subscription } from 'rxjs';
 import { User } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
@@ -9,11 +10,11 @@ import { UserService } from '../shared/user.service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    collapsed = true;
+    isCollapsed = true;
     user: User;
     userSub: Subscription;
 
-    constructor(private userService: UserService) {}
+    constructor(private userService: UserService, private router: Router) {}
 
     ngOnInit(): void {
         this.userSub = this.userService.userSubject.subscribe((user) => {
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
     }
 
     logout() {
-      this.userService.logout();
+        this.userService.logout();
+        this.router.navigate(['/home'])
     }
 }

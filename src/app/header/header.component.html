@@ -1,33 +1,34 @@
-<nav class="navbar navbar-expand-lg mb-3">
+<nav class="navbar navbar-expand-sm mb-3">
     <div class="container-fluid">
-      <div class="logo p-2" routerLink="/home">
-        <a class="navbar-left">
-            <img src="../../assets/img/logo.PNG" />
-        </a>
-        <span class="navbar-brand p-2">The Movie App</span>
-        <span class="">blah blah</span>
-    </div>
-    <button
-        class="navbar-toggler shadow-none"
-        type="button"
-        (click)="collapsed = !collapsed"
-    >
-        &#9776;
-    </button>
-    <div class="navbar-collapse" [class.collapse]="collapsed">
-        <ul class="navbar-nav ms-auto"></ul>
-        <ul class="navbar-nav me-5px">
-            <li class="nav-item" ngbDropdown>
-                <span
-                    class="header-link"
-                    ngbDropdownToggle
-                    routerLink="/sign-in"
-                    role="button"
-                    *ngIf="!user"
-                    >sign in</span
-                >
-            </li>
-            <li class="nav-item" ngbDropdown>
+        <div class="logo p-2" routerLink="/home">
+            <a class="navbar-left">
+                <img src="../../assets/img/logo.PNG" />
+            </a>
+            <span class="navbar-brand p-2">The Movie App</span>
+            <span class=""></span>
+        </div>
+        <button
+            class="navbar-toggler shadow-none"
+            type="button"
+            (click)="isCollapsed = !isCollapsed"
+        >
+            &#9776;
+        </button>
+        <div class="navbar-collapse" [class.collapse]="isCollapsed">
+            <ul class="navbar-nav ms-auto"></ul>
+            <ul class="navbar-nav me-10px">
+                <li class="nav-item" ngbDropdown>
+                    <span
+                        class="header-link"
+                        ngbDropdownToggle
+                        routerLink="/sign-in"
+                        role="button"
+                        *ngIf="!user"
+                        (click)="isCollapsed = !isCollapsed"
+                        >sign in</span
+                    >
+                </li>
+                <!-- <li class="nav-item" ngbDropdown>
                 <span
                     class="header-link"
                     ngbDropdownToggle
@@ -36,19 +37,30 @@
                     *ngIf="!user"
                     >sign up</span
                 >
-            </li>
-            <li class="nav-item" ngbDropdown>
-                <span
-                    class="header-link"
-                    ngbDropdownToggle
-                    role="button"
-                    *ngIf="user"
-                    (click)="logout()"
-                    >logout</span
-                >
-            </li>
-        </ul>
-        <span *ngIf="user">{{ user.nickname }} ({{ user.email }})</span>
-    </div>
+            </li> -->
+                <li class="nav-item" ngbDropdown>
+                    <span
+                        class="header-link"
+                        ngbDropdownToggle
+                        role="button"
+                        *ngIf="user"
+                        (click)="isCollapsed = !isCollapsed"
+                        >{{ user.nickname }} ({{ user.email }})</span
+                    >
+                </li>
+                <li class="nav-item" ngbDropdown>
+                    <span
+                        class="header-link"
+                        ngbDropdownToggle
+                        role="button"
+                        *ngIf="user"
+                        (click)="logout(); isCollapsed = !isCollapsed"
+                    >
+                        logout</span
+                    >
+                </li>
+                <app-alert [type]="'danger'" [message]="'Oops'"></app-alert>
+            </ul>
+        </div>
     </div>
 </nav>

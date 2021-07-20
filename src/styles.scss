@@ -1,21 +1,30 @@
+:root {
+    --color-black: #28292c;
+    --color-grey: #5a5d5f;
+    --color-grey-dark: #4e5052;
+    --color-red : #ba595a;
+    --color-blue: #94d0e7;
+}
+
 .app-container {
     font-family: 'Montserrat', sans-serif;
+    min-width: 350px;
 }
 
 .outer-container {
     background: #000; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to top,
-        #28292c,
-        #5a5d5f
+        var(--color-black),
+        var(--color-grey)
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
         to top,
-        #28292c,
-        #5a5d5f
+        var(--color-black),
+        var(--color-grey)
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    color: #94d0e7;
+    color: var(--color-blue);
     min-height: 100vh;
 }
 .inner-container {
@@ -29,13 +38,17 @@
     justify-content: center;
     align-items: flex-end;
     letter-spacing: 1px;
-    background-color: #ba595a;
-    color: #28292c;
+    background-color: var(--color-red);
+    color: var(--color-black);
+}
+
+.home-container {
+    padding: 50px inset;
 }
 
 .navbar {
-    background-color: #28292c;
-    color: #ba595a;
+    background-color: var(--color-black);
+    color: var(--color-red);
     display: flex;
 }
 
@@ -44,7 +57,7 @@
 }
 
 .navbar-toggler {
-    color: #ba595a;
+    color: var(--color-red);
 }
 
 .navbar-nav {
@@ -63,36 +76,36 @@
 .header-link {
     padding: 2px;
     margin: 2px;
-    color: #ba595a;
-    background-color: #28292c;
+    color: var(--color-red);
+    background-color: var(--color-black);
     cursor: pointer;
 }
 
 .header-link:hover {
-    color: #28292c;
-    background-color: #ba595a;
-    box-shadow: 0 0 2px 2px #ba595a;
+    color: var(--color-black);
+    background-color: var(--color-red);
+    box-shadow: 0 0 2px 2px var(--color-red);
 }
 
 .sign-up-link {
-  text-decoration: none;
-  color: #94d0e7;
+    text-decoration: none;
+    color: var(--color-blue);
 }
 
 .sign-up-link:hover {
-  color: #ba595a;
+    color: var(--color-red);
 }
 
 .form-control {
-    background-color: #28292c;
-    border-color: #94d0e7;
-    color: #ba595a;
+    background-color: var(--color-black);
+    border-color: var(--color-blue);
+    color: var(--color-red);
 }
 
 .form-control {
     &:focus,
     &:active {
-        box-shadow: 0 0 5px 5px #ba595a;
+        box-shadow: 0 0 5px 5px var(--color-red);
     }
 }
 
@@ -100,9 +113,9 @@
     &:hover,
     &:focus,
     &:active {
-        background-color: #28292c;
-        border-color: #94d0e7;
-        color: #ba595a;
+        background-color: var(--color-black);
+        border-color: var(--color-blue);
+        color: var(--color-red);
     }
 }
 
@@ -118,47 +131,46 @@ select:-webkit-autofill,
 select:-webkit-autofill:active,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: #ba595a;
-    color: #ba595a;
-    -webkit-box-shadow: 0 0 0px 1000px #28292c inset;
-    box-shadow: 0 0 0px 1000px #28292c inset;
+    -webkit-text-fill-color: var(--color-red);
+    color: var(--color-red);
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-black) inset;
+    box-shadow: 0 0 0px 1000px var(--color-black) inset;
 }
 
 .btn {
-    background-color: #28292c;
-    color: #94d0e7;
+    background-color: var(--color-black);
+    color: var(--color-blue);
     margin: 5px;
     // box-shadow: none;
 }
 
 .btn:focus {
-    box-shadow: 0 0 0 0.25rem rgba(#94d0e7, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(var(--color-blue), 0.25);
 }
 
 .btn:active,
 .btn:hover {
-    background-color: #94d0e7;
-    color: #28292c;
+    background-color: var(--color-blue);
+    color: var(--color-black);
 }
 
 .btn-outline {
     border: 2px solid black;
-    border-color: #94d0e7;
+    border-color: var(--color-blue);
     background-color: transparent;
 }
 
 .card {
-    box-shadow: 0px 2px 8px 2px #bf5758;
+    box-shadow: 0px 2px 8px 2px var(--color-red);
     transition: 0.3s;
     background-color: transparent;
     background-clip: border-box;
     border-radius: 10px;
-    max-width: 40vw;
-    min-width: 40vw;
+    max-width: 60%;
 }
 
 .card:hover {
-    box-shadow: 0 4px 16px 4px #ba595a;
+    box-shadow: 0 4px 16px 4px var(--color-red);
 }
 
 .card-img {
