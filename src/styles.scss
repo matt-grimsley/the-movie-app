@@ -21,8 +21,7 @@
 .inner-container {
     display: flex;
     margin: auto;
-    max-width: 40vw;
-    min-width: 40vw;
+    justify-content: center;
 }
 
 .footer-container {
@@ -37,6 +36,7 @@
 .navbar {
     background-color: #28292c;
     color: #ba595a;
+    display: flex;
 }
 
 .navbar-brand {
@@ -45,6 +45,10 @@
 
 .navbar-toggler {
     color: #ba595a;
+}
+
+.navbar-nav {
+    flex-direction: row;
 }
 
 .nav-item {
@@ -70,6 +74,15 @@
     box-shadow: 0 0 2px 2px #ba595a;
 }
 
+.sign-up-link {
+  text-decoration: none;
+  color: #94d0e7;
+}
+
+.sign-up-link:hover {
+  color: #ba595a;
+}
+
 .form-control {
     background-color: #28292c;
     border-color: #94d0e7;
@@ -93,47 +106,6 @@
     }
 }
 
-.btn {
-    background-color: #28292c;
-    color: #94d0e7;
-}
-
-.btn:hover {
-    background-color: #94d0e7;
-    color: #28292c;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 #bf5758;
-    transition: 0.3s;
-    background-color: #5a5d5f;
-    background-clip: border-box;
-    border-radius: 10px;
-    width: 100%;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 #ba595a;
-}
-
-.card-img {
-    background-color: #5a5d5f;
-    background-clip: padding-box;
-}
-
-.card-container {
-    padding: 2px 16px;
-}
-
-// input,
-// input:hover,
-// input:focus,
-// input:active {
-//     -webkit-text-fill-color: #ba595a;
-//     -webkit-background
-//     transition: background-color 5000s ease-in-out 0s;
-// }
-
 input:-webkit-autofill,
 input:-webkit-autofill:active,
 input:-webkit-autofill:hover,
@@ -150,4 +122,59 @@ select:-webkit-autofill:focus {
     color: #ba595a;
     -webkit-box-shadow: 0 0 0px 1000px #28292c inset;
     box-shadow: 0 0 0px 1000px #28292c inset;
+}
+
+.btn {
+    background-color: #28292c;
+    color: #94d0e7;
+    margin: 5px;
+    // box-shadow: none;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(#94d0e7, 0.25);
+}
+
+.btn:active,
+.btn:hover {
+    background-color: #94d0e7;
+    color: #28292c;
+}
+
+.btn-outline {
+    border: 2px solid black;
+    border-color: #94d0e7;
+    background-color: transparent;
+}
+
+.card {
+    box-shadow: 0px 2px 8px 2px #bf5758;
+    transition: 0.3s;
+    background-color: transparent;
+    background-clip: border-box;
+    border-radius: 10px;
+    max-width: 40vw;
+    min-width: 40vw;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px 4px #ba595a;
+}
+
+.card-img {
+    background-color: transparent;
+    background-clip: padding-box;
+}
+
+.card-container {
+    padding: 2px 16px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.card-text {
+    padding: 2px 16px;
+    margin: auto;
+    justify-content: center;
 }
