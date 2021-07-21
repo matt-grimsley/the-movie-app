@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { ProfileComponent } from './profile/profile.component';
         HeaderComponent,
         FooterComponent,
         AlertComponent,
-        ProfileComponent
+        ProfileComponent,
+        PageNotFoundComponent
     ],
     imports: [
         RouterModule,
