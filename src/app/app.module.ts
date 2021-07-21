@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AlertComponent } from './shared/alert/alert.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { AlertComponent } from './shared/alert/alert.component';
         HomeComponent,
         HeaderComponent,
         FooterComponent,
-        AlertComponent
+        AlertComponent,
+        ProfileComponent
     ],
     imports: [
         RouterModule,

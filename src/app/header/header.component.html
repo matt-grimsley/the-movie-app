@@ -40,17 +40,15 @@
                 <li class="nav-item" ngbDropdown>
                     <span
                         class="header-link"
-                        ngbDropdownToggle
                         role="button"
                         *ngIf="user"
-                        
+                        routerLink="/profile"
                         >{{ user.nickname }} ({{ user.email }})</span
                     >
                 </li>
                 <li class="nav-item" ngbDropdown>
                     <span
                         class="header-link"
-                        ngbDropdownToggle
                         role="button"
                         *ngIf="user"
                         (click)="logout(); isCollapsed = !isCollapsed"
@@ -58,7 +56,7 @@
                         logout</span
                     >
                 </li>
-                <app-alert [type]="'danger'" [message]="'Oops'"></app-alert>
+                <!-- <app-alert [type]="'danger'" [message]="'Oops'"></app-alert> -->
             </ul>
         </div>
     </div>

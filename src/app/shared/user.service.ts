@@ -14,7 +14,7 @@ export class UserService {
     constructor(private http: HttpClient, private router: Router) {}
 
     public get user() {
-      return this._user;
+        return this._user;
     }
 
     signUp(
@@ -33,9 +33,10 @@ export class UserService {
                 nickname: nickname,
                 password: password,
                 password_confirmation: passwordConfirmation
-            })            .subscribe((responseData) => {
+            })
+            .subscribe((responseData) => {
                 if (responseData['success']) {
-                  this.handleAuthentication(responseData['payload'] as User);
+                    this.handleAuthentication(responseData['payload'] as User);
                 } else {
                     console.log(responseData['message']);
                 }
@@ -57,19 +58,35 @@ export class UserService {
             });
     }
 
+    autoLogin() {
+        const user = JSON.parse(localStorage.getItem('userData'));
+        if (!user) {
+            return;
+        }
+        console.log(`Performing auto login for user: ${user.first_name}`);
+        this._user = user;
+        this.userSubject.next(user);
+    }
     logout() {
-        if (this.user) {
+        if (this._user) {
             this.http
                 .delete('https://codelabs2021.herokuapp.com/api/v1/users/logout', {})
                 .subscribe((responseData) => {
+                  debugger
                     if (responseData['success']) {
                         this._user = null;
-                        console.log(`Logged out. this.user:${this.user}`);
-                        this.userSubject.next(this.user);
+                        console.log(`Logged out. this.user:${this._user}`);
+                        this.userSubject.next(this._user);
+                        localStorage.removeItem('userData');
                         this.router.navigate(['/home']);
                     } else {
                         console.log('Well this is strange... failed to log out.');
                     }
+                },(error)=> {
+                  console.log(error);
+                  this._user = null;
+                  this.userSubject.next(this._user);
+                  localStorage.removeItem('userData');
                 });
         }
     }
@@ -79,9 +96,10 @@ export class UserService {
     }
 
     private handleAuthentication(user: User) {
-         this._user = user;
-         console.log(this.user);
-         this.userSubject.next(this.user);
-         this.router.navigate(['/home']);
+        this._user = user;
+        console.log(this.user);
+        this.userSubject.next(this.user);
+        localStorage.setItem('userData', JSON.stringify(user));
+        this.router.navigate(['/home']);
     }
 }

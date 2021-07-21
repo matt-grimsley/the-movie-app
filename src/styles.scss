@@ -2,7 +2,7 @@
     --color-black: #28292c;
     --color-grey: #5a5d5f;
     --color-grey-dark: #4e5052;
-    --color-red : #ba595a;
+    --color-red: #ba595a;
     --color-blue: #94d0e7;
 }
 
@@ -189,4 +189,44 @@ select:-webkit-autofill:focus {
     padding: 2px 16px;
     margin: auto;
     justify-content: center;
+}
+
+.profile-title {
+    display: flex;
+    justify-content: center;
+    color: var(--color-blue);
+}
+
+.profile-card {
+    background-clip: padding-box;
+    box-shadow: 0px 2px 8px 2px var(--color-red);
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: var(--color-black);
+}
+
+.profile-card:hover {
+  box-shadow: 0 4px 16px 4px var(--color-red);
+}
+
+.profile-table {
+  border: none;
+  border-bottom-style: none;
+  color: var(--color-red);
+}
+
+.profile-table td, tr {
+  padding: 5px;
+
+}
+
+.profile-table-category {
+  color: var(--color-blue);
+}
+
+
+
+.dropdown-item {
+    color: var(--color-black);
+    background-color: var(--color-red);
 }

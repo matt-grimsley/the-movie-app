@@ -1,0 +1,39 @@
+<div class="profile-container">
+    <div class="profile-title">
+        <div class="row">
+            <p>about me</p>
+            <br />
+        </div>
+    </div>
+    <div class="row" *ngIf="!user">
+        <span>oh no, it looks like you're not signed in...</span>
+    </div>
+    <div class="profile-card mb-4" *ngIf="user">
+        <div class="card-body">
+            <table class="table-borderless profile-table">
+                <tbody>
+                    <tr>
+                        <td class="profile-table-category">email</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">first name</td>
+                        <td>{{ user.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">last name</td>
+                        <td>{{ user.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">nickname</td>
+                        <td>{{ user.nickname }}</td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <img src="../../assets/img/dog.png" alt="">
+</div>
