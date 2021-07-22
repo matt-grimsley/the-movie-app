@@ -226,9 +226,11 @@ select:-webkit-autofill:focus {
   color: var(--color-blue);
 }
 
-
-
 .dropdown-item {
     color: var(--color-black);
     background-color: var(--color-red);
+}
+
+.not-found-wrapper {
+  margin: 50px;
 }
