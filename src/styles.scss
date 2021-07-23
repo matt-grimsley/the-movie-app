@@ -208,22 +208,22 @@ select:-webkit-autofill:focus {
 }
 
 .profile-card:hover {
-  box-shadow: 0 4px 16px 4px var(--color-red);
+    box-shadow: 0 4px 16px 4px var(--color-red);
 }
 
 .profile-table {
-  border: none;
-  border-bottom-style: none;
-  color: var(--color-red);
+    border: none;
+    border-bottom-style: none;
+    color: var(--color-red);
 }
 
-.profile-table td, tr {
-  padding: 5px;
-
+.profile-table td,
+tr {
+    padding: 5px;
 }
 
 .profile-table-category {
-  color: var(--color-blue);
+    color: var(--color-blue);
 }
 
 .dropdown-item {
@@ -232,5 +232,5 @@ select:-webkit-autofill:focus {
 }
 
 .not-found-wrapper {
-  margin: 50px;
+    margin: 50px;
 }

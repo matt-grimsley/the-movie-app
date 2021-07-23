@@ -15,6 +15,42 @@
             </div>
         </div>
     </div>
+    <div class="movies-container" *ngIf="movies">
+        <div class="profile-card card-body" *ngFor="let m of movies">
+            <table class="table-borderless profile-table">
+                <tbody>
+                    <tr>
+                        <td class="profile-table-category">title</td>
+                        <td>{{ m.title }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">year</td>
+                        <td>{{ m.year }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">director</td>
+                        <td>{{ m.director }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">rating</td>
+                        <td>{{ m.parental_rating }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-table-category">reviews:</td>
+                        <td *ngFor="let r of movies.reviews">
+                            <div class="row">
+                                {{ r.title }} - {{ r.rating }}
+                            </div>
+                            <div class="row">
+                                {{ r.body }}
+                            </div>
+                            {{ r.created_at }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <br />
 <div class="row">
