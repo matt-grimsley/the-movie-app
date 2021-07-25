@@ -226,6 +226,40 @@ tr {
     color: var(--color-blue);
 }
 
+.movie-card {
+    background-clip: padding-box;
+    padding: 3px;
+    margin: 10px;
+    box-shadow: 0px 2px 8px 2px var(--color-red);
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: var(--color-black);
+}
+.movie-card:hover {
+    box-shadow: 0 4px 16px 4px var(--color-red);
+}
+
+.movie-card-title {
+    display: flex;
+    justify-content: center;
+    color: var(--color-blue);
+    font-size: 200%;
+}
+
+.movie-card-table {
+    border: none;
+    border-bottom-style: none;
+    color: var(--color-red);
+}
+
+.movie-card-table td,
+tr {
+    padding: 5px;
+}
+
+.movie-card-table-category {
+    color: var(--color-blue);
+}
 .dropdown-item {
     color: var(--color-black);
     background-color: var(--color-red);

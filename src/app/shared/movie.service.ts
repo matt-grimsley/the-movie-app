@@ -22,6 +22,15 @@ export class MovieService implements OnInit, OnDestroy {
         });
     }
 
+    public get movieCount() {
+      if (this._movies){
+        return this._movies.length;
+      }
+      else {
+        return 0;
+      }
+    }
+
     showMovies() {
         this.http
             .get('https://codelabs2021.herokuapp.com/api/v1/movies/index', {})

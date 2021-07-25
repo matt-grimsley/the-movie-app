@@ -6,6 +6,7 @@ export class Movie {
         public average_rating: number,
         public created_at: Date,
         public director: string,
+        public duration: number,
         public image: null,
         public parental_rating: string,
         public rating: number,

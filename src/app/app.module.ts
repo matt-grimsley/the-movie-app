@@ -16,6 +16,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { ReviewComponent } from './review/review.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +30,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         FooterComponent,
         AlertComponent,
         ProfileComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        MovieCardComponent,
+        ReviewComponent,
+        MoviesComponent
     ],
     imports: [
         RouterModule,

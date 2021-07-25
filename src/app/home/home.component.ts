@@ -9,22 +9,14 @@ import { MovieService } from '../shared/movie.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  movies: Movie[];
-  movieSub: Subscription
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.movieSub = this.movieService.movieSubject.subscribe((movies) => this.movies = movies);
-    this.fetchMovies();
-    debugger
+    
   }
 
-  fetchMovies(){
-    this.movieService.showMovies();
-  }
   ngOnDestroy(): void {
-    this.movieSub.unsubscribe();
   }
 
 }
