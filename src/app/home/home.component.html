@@ -18,7 +18,7 @@
     </nav>
     <div class="row">
       <router-outlet></router-outlet>
-        <div *ngIf="isHomeRoute()"><app-movies></app-movies></div>
+        <div *ngIf="isHomeRoute()"><app-movies [user]="user"></app-movies></div>
     </div>
 
     <br />

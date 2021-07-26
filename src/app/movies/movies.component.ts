@@ -3,6 +3,7 @@ import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Movie } from '../shared/movie.model';
 import { MovieService } from '../shared/movie.service';
+import { User } from '../shared/user.model';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -12,6 +13,7 @@ const FILTER_PAG_REGEX = /[^0-9]/g;
     styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit, OnDestroy {
+  @Input() user: User;
 
     movies: Movie[];
     collectionSize: number;

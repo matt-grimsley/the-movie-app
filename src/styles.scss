@@ -298,3 +298,17 @@ ngb-pagination {
 .ratings-option {
   color: var(--color-blue);
 }
+
+.delete-link {
+  color: var(--color-red);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.delete-link:hover{
+  color: var(--color-blue);
+}
+

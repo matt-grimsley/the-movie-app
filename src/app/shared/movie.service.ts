@@ -76,11 +76,11 @@ export class MovieService implements OnInit, OnDestroy {
 
     deleteMovie(id: number) {
         this.http
-            .delete('https://codelabs2021.herokuapp.com/api/v1/movies/destroy' + id)
+            .request('delete','https://codelabs2021.herokuapp.com/api/v1/movies/destroy', { body: {id: id }})
             .subscribe((response) => {
                 if (response['success']) {
                     console.log(response);
-                    this.router.navigate(['/movies']);
+                    this.showMovies();
                 } else {
                     console.log(response);
                 }
