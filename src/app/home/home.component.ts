@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../shared/movie.model';
 import { MovieService } from '../shared/movie.service';
@@ -10,10 +11,14 @@ import { MovieService } from '../shared/movie.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
-    
+
+  }
+
+  isHomeRoute() {
+    return this.router.url === '/movies';
   }
 
   ngOnDestroy(): void {

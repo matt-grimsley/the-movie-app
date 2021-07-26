@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { ReviewComponent } from './review/review.component';
 import { MoviesComponent } from './movies/movies.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { MoviesComponent } from './movies/movies.component';
         PageNotFoundComponent,
         MovieCardComponent,
         ReviewComponent,
-        MoviesComponent
+        MoviesComponent,
+        AddMovieComponent
     ],
     imports: [
         RouterModule,

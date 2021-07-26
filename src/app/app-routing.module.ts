@@ -6,18 +6,26 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/movies', pathMatch: 'full' },
-    { path: 'movies', component: HomeComponent},
+    {
+        path: 'movies',
+        component: HomeComponent,
+        children: [{ path: 'add', component: AddMovieComponent }]
+    },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'sign-in', component: SignInComponent },
-    { path: 'profile', component: ProfileComponent},
-    { path: '**', component: PageNotFoundComponent}
+    { path: 'profile', component: ProfileComponent },
+    { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
     declarations: [],
-    imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}), CommonModule],
+    imports: [
+        RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
+        CommonModule
+    ],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -1,6 +1,14 @@
 import { Review } from './review.model';
 
-export class Movie {
+export interface MovieBase {
+  title: string;
+  director: string;
+  year: number;
+  total_gross: number;
+  duration: number;
+  parental_rating: string;
+}
+export class Movie implements MovieBase{
     constructor(
         public id: number,
         public average_rating: number,
