@@ -10,6 +10,7 @@ import { UserService } from './user.service';
 @Injectable({
     providedIn: 'root'
 })
+
 export class AuthInterceptorService implements HttpInterceptor {
     constructor(private userService: UserService) {}
 

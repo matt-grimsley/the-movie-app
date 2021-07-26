@@ -78,7 +78,7 @@ export class UserService {
                         console.log(`Logged out. this.user:${this._user}`);
                         this.userSubject.next(this._user);
                         localStorage.removeItem('userData');
-                        this.router.navigate(['/home']);
+                        this.router.navigate(['/movies']);
                     } else {
                         console.log('Well this is strange... failed to log out.');
                     }
@@ -100,6 +100,6 @@ export class UserService {
         console.log(this.user);
         this.userSubject.next(this.user);
         localStorage.setItem('userData', JSON.stringify(user));
-        this.router.navigate(['/home']);
+        this.router.navigate(['/movies']);
     }
 }

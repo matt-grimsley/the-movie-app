@@ -1,0 +1,11 @@
+<div class="movies-container" *ngIf="movies">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page">
+        <ng-template ngbPaginationPrevious>Previous</ng-template>
+        <ng-template ngbPaginationPages
+            ><p style="margin: 10px">{{ page }} of {{ collectionSize }}</p></ng-template
+        >
+        <ng-template ngbPaginationNext>Next</ng-template></ngb-pagination
+    >
+
+    <span><app-movie-card [user]="user" [movie]="movies[page - 1]"></app-movie-card></span>
+</div>

@@ -1,0 +1,36 @@
+<div class="movie-card-container">
+    <div class="movie-card">
+        <span class="movie-card-title">{{ movie.title }} ({{movie.year}})</span>
+
+        <div class="movie-card-body">
+            <table class="table-borderless movie-card-table">
+                <tbody>
+                    <tr>
+                        <td class="movie-card-table-category">director</td>
+                        <td>{{ movie.director }}</td>
+                    </tr>
+                    <tr>
+                        <td class="movie-card-table-category">duration</td>
+                        <td>{{ movie.duration }}</td>
+                    </tr>
+                    <tr>
+                        <td class="movie-card-table-category">parental rating</td>
+                        <td>{{ movie.parental_rating }}</td>
+                    </tr>
+                    <tr>
+                        <td class="movie-card-table-category">average rating</td>
+                        <td>{{ movie.average_rating }}</td>
+                    </tr>
+                    <tr>
+                        <td class="movie-card-table-category">total earnings</td>
+                        <td>{{ movie.total_gross }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row delete-link-container">
+              <a *ngIf="showDeleteButton()" class="delete-link" (click)="deleteMovie()">delete</a>
+            </div>
+        </div>
+    </div>
+
+</div>

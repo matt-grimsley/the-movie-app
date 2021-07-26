@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm mb-3">
     <div class="container-fluid">
-        <div class="logo p-2" routerLink="/home">
+        <div class="logo p-2" routerLink="/movies">
             <a class="navbar-left">
                 <img src="../../assets/img/logo.PNG" />
             </a>
@@ -43,7 +43,7 @@
                         role="button"
                         *ngIf="user"
                         routerLink="/profile"
-                        >{{ user.nickname }} ({{ user.email }})</span
+                        >{{ user.nickname }}'s profile ({{ user.email }})</span
                     >
                 </li>
                 <li class="nav-item" ngbDropdown>
