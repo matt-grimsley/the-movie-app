@@ -8,6 +8,7 @@ export interface MovieBase {
   duration: number;
   parental_rating: string;
 }
+
 export class Movie implements MovieBase{
     constructor(
         public id: number,

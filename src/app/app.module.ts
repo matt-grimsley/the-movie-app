@@ -17,9 +17,10 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
-import { ReviewComponent } from './review/review.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 import { MoviesComponent } from './movies/movies.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import { ReviewCardComponent } from './review-card/review-card.component';
 
 @NgModule({
     declarations: [
@@ -33,9 +34,10 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
         ProfileComponent,
         PageNotFoundComponent,
         MovieCardComponent,
-        ReviewComponent,
+        ReviewsComponent,
         MoviesComponent,
-        AddMovieComponent
+        AddMovieComponent,
+        ReviewCardComponent
     ],
     imports: [
         RouterModule,
