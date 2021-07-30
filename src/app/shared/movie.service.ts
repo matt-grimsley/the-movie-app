@@ -1,32 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Movie, MovieBase } from './movie.model';
-import { User } from './user.model';
-import { UserService } from './user.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class MovieService implements OnInit, OnDestroy {
+export class MovieService {
     private _movies: Movie[];
     private _ratings: string[] = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR'];
     movieSubject = new BehaviorSubject<Movie[]>(null);
-    user: User;
-    userSub: Subscription;
 
-    constructor(
-        private http: HttpClient,
-        private userService: UserService,
-        private router: Router
-    ) {}
-
-    ngOnInit() {
-        this.userSub = this.userService.userSubject.subscribe((user) => {
-            this.user = user;
-        });
-    }
+    constructor(private http: HttpClient, private router: Router) {}
 
     public get movieCount() {
         if (this._movies) {
@@ -37,8 +23,8 @@ export class MovieService implements OnInit, OnDestroy {
     }
 
     public get ratings() {
-      console.log(this._ratings);
-      return this._ratings;
+        console.log(this._ratings);
+        return this._ratings;
     }
 
     showMovies() {
@@ -76,7 +62,11 @@ export class MovieService implements OnInit, OnDestroy {
 
     deleteMovie(id: number) {
         this.http
-            .request('delete','https://codelabs2021.herokuapp.com/api/v1/movies/destroy', { body: {id: id }})
+            .request(
+                'delete',
+                'https://codelabs2021.herokuapp.com/api/v1/movies/destroy',
+                { body: { id: id } }
+            )
             .subscribe((response) => {
                 if (response['success']) {
                     console.log(response);
@@ -89,10 +79,7 @@ export class MovieService implements OnInit, OnDestroy {
 
     handleMoviesResponse(movies: Movie[]) {
         this._movies = movies;
-        this.movieSubject.next(this._movies);
-    }
 
-    ngOnDestroy() {
-        this.userSub.unsubscribe();
+        this.movieSubject.next(this._movies);
     }
 }

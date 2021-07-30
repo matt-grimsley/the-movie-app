@@ -21,6 +21,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { MoviesComponent } from './movies/movies.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
+import { AddReviewComponent } from './add-review/add-review.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { ReviewCardComponent } from './review-card/review-card.component';
         ReviewsComponent,
         MoviesComponent,
         AddMovieComponent,
-        ReviewCardComponent
+        ReviewCardComponent,
+        AddReviewComponent
     ],
     imports: [
         RouterModule,

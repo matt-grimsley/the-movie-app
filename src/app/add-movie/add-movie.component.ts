@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Movie, MovieBase } from '../shared/movie.model';
+import { MovieBase } from '../shared/movie.model';
 import { MovieService } from '../shared/movie.service';
 
 @Component({
