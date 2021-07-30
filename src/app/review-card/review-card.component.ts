@@ -9,7 +9,10 @@ import { Review } from '../shared/review.model';
 })
 export class ReviewCardComponent implements OnInit, OnChanges {
     @Input() movie: Movie;
-    reviews: Review[]
+    reviews: Review[];
+    timesSinceCreation: Date[];
+    timesSinceEdit: Date[];
+
     constructor() {}
 
     ngOnInit(): void {

@@ -9,4 +9,9 @@ export class Review {
         public created_at: Date,
         public updated_at: Date
     ) {}
+
+    public get isUpdated() {
+      debugger
+      return (this.updated_at && this.updated_at != null);
+    }
 }

@@ -1,29 +1,43 @@
 <div class="review-card-container">
     <div class="review-card">
-        <div class="review-card-title">reviews ({{reviews.length}})</div>
+        <div class="review-card-title">reviews ({{ reviews.length }})</div>
         <div class="review-card-body" *ngIf="reviews.length > 0">
-            <table class="table-borderless review-card-table" *ngFor="let review of reviews">
+            <table
+                class="table-borderless review-card-table"
+                *ngFor="let review of reviews"
+            >
                 <div class="review-card-content">
-                  <tbody>
-                    <tr>
-                        <td class="review-card-title-table-category" ></td>
-                        <td>{{ review.title }}</td>
-                    </tr>
-                    <tr>
-                        <td class="review-card-table-category"></td>
-                        <td>{{ review.body }}</td>
-                    </tr>
-                    <tr>
-                        <td class="review-card-table-category"></td>
-                        <td>{{ review.rating }} / 5</td>
-                    </tr>
-                </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="review-card-title-table-category"></td>
+                            <td>{{ review.title }}</td>
+                        </tr>
+                        <tr>
+                            <td class="review-card-table-category"></td>
+                            <td>{{ review.body }}</td>
+                        </tr>
+                        <tr>
+                            <td class="review-card-table-category"></td>
+                            <td>{{ review.rating }} / 5</td>
+                        </tr>
+                        <!-- <tr>
+                          <td class="review-card-table-category"></td>
+                          <td>review by user {{ review.user_id}}</td>
+                        </tr> -->
+                    </tbody>
+                    <span class="review-card-timestamp"
+                        >reviewed by user {{ review.user_id }} - {{ review.created_at | dateAgo }}
+                        <span *ngIf="review.created_at"style="font-style: italic; padding-left: 5px;">*edited {{review.updated_at | dateAgo}}</span></span
+                    >
                 </div>
-                <hr>
+                <hr />
             </table>
         </div>
-        <div  *ngIf="reviews.length == 0">
-          <span class="review-card-table-category">Hmm... there are no reviews for this movie yet.  Be the first to add one!</span>
+        <div *ngIf="reviews.length == 0">
+            <span class="review-card-table-category"
+                >Hmm... there are no reviews for this movie yet. Be the first to add
+                one!</span
+            >
         </div>
     </div>
     <!-- <P>sup</P> -->

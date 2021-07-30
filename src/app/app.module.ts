@@ -22,6 +22,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { AddReviewComponent } from './add-review/add-review.component';
+import { DateAgoPipe } from './shared/date-ago.pipe';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { AddReviewComponent } from './add-review/add-review.component';
         MoviesComponent,
         AddMovieComponent,
         ReviewCardComponent,
-        AddReviewComponent
+        AddReviewComponent,
+        DateAgoPipe
     ],
     imports: [
         RouterModule,
