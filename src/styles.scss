@@ -84,8 +84,8 @@
 }
 
 .header-link {
-    padding: 2px;
-    margin: 2px;
+    padding: 5px;
+    margin: 5px;
     color: var(--color-red);
     background-color: var(--color-black);
     cursor: pointer;
@@ -97,12 +97,12 @@
     box-shadow: 0 0 2px 2px var(--color-red);
 }
 
-.sign-up-link {
-    text-decoration: none;
+.text-link {
+    // text-decoration: none;
     color: var(--color-blue);
 }
 
-.sign-up-link:hover {
+.text-link:hover {
     color: var(--color-red);
 }
 
@@ -288,6 +288,7 @@ tr {
     margin: auto;
     flex-direction: column;
     padding: 10px;
+    min-width: 50vw;
 }
 
 ngb-pagination {
@@ -296,19 +297,64 @@ ngb-pagination {
 }
 
 .ratings-option {
-  color: var(--color-blue);
+    color: var(--color-blue);
 }
 
-.delete-link {
-  color: var(--color-red);
-  cursor: pointer;
-  text-decoration: none;
-  padding: 5px;
-  margin-left: 10px;
-  margin-bottom: 5px;
+.action-link {
+    color: var(--color-red);
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
 }
 
-.delete-link:hover{
-  color: var(--color-blue);
+.action-link:hover {
+    color: var(--color-blue);
+}
+
+.action-link-container {
+    margin: auto;
+}
+
+.review-card {
+    background-clip: padding-box;
+    padding: 3px;
+    margin: 10px;
+    box-shadow: 0px 2px 8px 2px var(--color-red);
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: var(--color-black);
+}
+.review-card:hover {
+    box-shadow: 0 4px 16px 4px var(--color-red);
+}
+
+.review-card-title {
+    display: flex;
+    justify-content: center;
+    color: var(--color-blue);
+    font-size: 200%;
+}
+
+.review-card-table {
+    border: none;
+    border-bottom-style: none;
+    color: var(--color-red);
+    margin: auto;
+    width: 50vw
+}
+
+.review-card-table td,
+tr {
+    padding: 5px;
+}
+
+.review-card-table-category {
+    color: var(--color-blue);
+}
+
+.review-card-title-table-category {
+    color: var(--color-blue);
+    font-size: 200%;
 }
 

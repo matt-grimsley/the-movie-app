@@ -1,6 +1,6 @@
 <div class="movie-card-container">
     <div class="movie-card">
-        <span class="movie-card-title">{{ movie.title }} ({{movie.year}})</span>
+        <span class="movie-card-title">{{ movie.title }} ({{ movie.year }})</span>
 
         <div class="movie-card-body">
             <table class="table-borderless movie-card-table">
@@ -27,10 +27,23 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="row delete-link-container">
-              <a *ngIf="showDeleteButton()" class="delete-link" (click)="deleteMovie()">delete</a>
+            <div class="row action-link-container">
+                <a *ngIf="showDeleteButton()" class="action-link" (click)="deleteMovie()"
+                    >delete this movie</a
+                >
+                <a
+                    *ngIf="showAddReviewLink()"
+                    class="action-link"
+                    (click)="addingReview = true"
+                    >add a review</a
+                >
+                <a *ngIf="!showAddReviewLink()" class="action-link" (click)="addingReview = false">cancel adding</a>
             </div>
         </div>
     </div>
-
+</div>
+<div *ngIf="showReviewForm()"><app-add-review [movie]="movie" (closeEvent)="addingReview = false"></app-add-review></div>
+<div *ngIf="user"><app-reviews [movie]="movie"></app-reviews></div>
+<div *ngIf="!user">
+    Please <a routerLink="/sign-in" class="action-link">sign in</a> to see user reviews
 </div>

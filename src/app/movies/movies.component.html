@@ -6,6 +6,9 @@
         >
         <ng-template ngbPaginationNext>Next</ng-template></ngb-pagination
     >
+    <span
+        ><app-movie-card [user]="user" [movie]="movies[page - 1]"></app-movie-card
+    ></span>
 
-    <span><app-movie-card [user]="user" [movie]="movies[page - 1]"></app-movie-card></span>
+    
 </div>

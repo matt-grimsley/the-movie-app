@@ -71,23 +71,25 @@ export class UserService {
         if (this._user) {
             this.http
                 .delete('https://codelabs2021.herokuapp.com/api/v1/users/logout', {})
-                .subscribe((responseData) => {
-                  debugger
-                    if (responseData['success']) {
+                .subscribe(
+                    (responseData) => {
+                        if (responseData['success']) {
+                            this._user = null;
+                            console.log(`Logged out. this.user:${this._user}`);
+                            this.userSubject.next(this._user);
+                            localStorage.removeItem('userData');
+                            this.router.navigate(['/movies']);
+                        } else {
+                            console.log('Well this is strange... failed to log out.');
+                        }
+                    },
+                    (error) => {
+                        console.log(error);
                         this._user = null;
-                        console.log(`Logged out. this.user:${this._user}`);
                         this.userSubject.next(this._user);
                         localStorage.removeItem('userData');
-                        this.router.navigate(['/movies']);
-                    } else {
-                        console.log('Well this is strange... failed to log out.');
                     }
-                },(error)=> {
-                  console.log(error);
-                  this._user = null;
-                  this.userSubject.next(this._user);
-                  localStorage.removeItem('userData');
-                });
+                );
         }
     }
 
